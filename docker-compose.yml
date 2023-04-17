@@ -1,22 +1,6 @@
 version: "3"
 
 services:
-  cli:
-    build: ./cli
-    image: evgeniy-khyst/letsencrypt-docker-compose-cli
-    user: ${CURRENT_USER}
-    group_add:
-      - ${DOCKER_GROUP}
-    environment:
-      - COMPOSE_PROJECT_NAME
-      - CURRENT_USER
-      - DOCKER_GROUP
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./:/workdir
-    profiles:
-      - config
-
   nginx:
     build: ./nginx
     image: evgeniy-khyst/nginx
